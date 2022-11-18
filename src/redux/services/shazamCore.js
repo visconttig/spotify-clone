@@ -34,6 +34,9 @@ const options = {
             }),
             getSongRelated: builder.query({
                 query: ({songid}) => `/tracks/related?track_id=${songid}`
+            }),
+            getArtistDetail: builder.query({
+                query: (artistId) => `/artists/details?artist_id=${artistId}`
             })
         }),
     });
@@ -41,4 +44,5 @@ const options = {
     export const { 
         useGetTopChartsQuery,
         useGetSongDetailsQuery,
-        useGetSongRelatedQuery } = shazamCoreApi; 
+        useGetSongRelatedQuery, 
+        useGetArtistDetailQuery } = shazamCoreApi; 
