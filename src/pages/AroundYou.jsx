@@ -30,12 +30,19 @@ const AroundYou = () => {
         return <Error />;
     }
 
-    let regionNames = new Intl.DisplayNames([`${country}`], {type: "region"});
-    let countryFullName = regionNames.of(`${country}`);
+    let countryFullName;
+    if(country){
+        let regionNames = new Intl.DisplayNames([`${country}`], {type: "region"});
+        countryFullName = regionNames.of(`${country}`);
+    }
 
     return (
         <div className="flex flex-col">
-            <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">Around You <span className="text-gray-400 opacity-10" >{countryFullName}</span> </h2>
+            <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">Around You { countryFullName ? (
+                <span className="text-gray-400 opacity-10" >{countryFullName}</span>
+            ) : null }
+               
+             </h2>
             <div className="flex flex-wrap sm:justify-start justify-center gap-8">
                 {data?.map((song, i) => (
                     <SongCard 
