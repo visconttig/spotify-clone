@@ -8,11 +8,6 @@ import { useGetTopChartsQuery } from "../redux/services/shazamCore";
 const TopArtists = () => {
     const { data, isFetching, error } = useGetTopChartsQuery();
 
-    //test 
-    useEffect(() => {
-        console.log("data: ");
-        console.log(data);
-    }, [data]);
 
     if(isFetching){
         return <Loader title="Loading top charts..." />;
@@ -21,9 +16,6 @@ const TopArtists = () => {
     if(error){
         return <Error />;
     }
-
-
-
 
 
     return (

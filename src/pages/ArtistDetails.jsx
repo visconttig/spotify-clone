@@ -28,7 +28,8 @@ const ArtistDetails = () => {
 
             
             <RelatedSongs
-                data={Object.values(artistData?.songs)}
+                // data={Object.values(artistData?.songs)}
+                data={artistData}
                 artistId={artistId}
                 isPlaying={isPlaying}
                 activeSong={activeSong} />

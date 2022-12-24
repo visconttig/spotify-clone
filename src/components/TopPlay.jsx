@@ -20,9 +20,9 @@ const TopChartCard = ({song, i, isPlaying, activeSong, handlePauseClick, handleP
           <Link to={`/songs/${song.key}`}>
             <p className="text-xl font-bold text-white">{song?.title}</p>
           </Link>
-          {/* <Link to={`/songs/${song?.artists[0].adamid}`}>
+          <Link to={`/songs/${song?.artists[0]?.adamid}`}>
             <p className="text-base text-white">{song?.subtitle}</p>
-          </Link> */}
+          </Link>
         </div>
     </div>
     <PlayPause 
@@ -42,7 +42,12 @@ const TopPlay = () => {
   const { data } = useGetTopChartsQuery();
 const divRef = useRef(null);
 
-const topPlays = data?.slice(0, 5);
+const topPlays = data?.slice(0, 6);
+let filteredData = null;
+if(topPlays){
+  filteredData = topPlays.filter((item) => item.hasOwnProperty("artists"));
+}
+
 
 useEffect(() => {
   divRef.current.scrollIntoView({ behavior: "smooth"});
@@ -59,7 +64,7 @@ const handlePauseClick = () => {
 
 
 return (
-  <div ref={divRef} className="xl:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[500px] max-w-full flex felx-col flex-wrap">
+    <div ref={divRef} className="xl:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[500px] max-w-full flex felx-col flex-wrap">
     <div className="w-full flex flex-col">
       <div className="flex flex-row justify-between items-center">
         <h2 className="text-white font-bold text-xl">Top Charts</h2>
@@ -69,7 +74,7 @@ return (
 
       </div>
       <div className="mt-4 flex flex-col gap-1">
-         {topPlays?.map((song, i) => (
+         { filteredData && filteredData?.map((song, i) => (
           <TopChartCard 
           key={song.key} 
           song={song} 
@@ -100,15 +105,17 @@ return (
             modules={[FreeMode]}
             className="mt-4"
             >
-              { topPlays?.map((song, i) => (
+              { filteredData && filteredData?.map((song, i) => (
                 <SwiperSlide 
                 key={song?.key}
                 style={{ width: "25%", height: "auto"}}
                 className="shadow-lg rounded-full animate-slideright"
               >
-                {/* <Link to={`/artists/${song?.artists[0].adamid}`}>
-                  <img src={song?.images.background} alt="name" className="w-full rounded-full object-cover" />
-                </Link> */}
+
+
+                 <Link to={`/artists/${song?.artists[0]?.adamid}`}>
+                 <img src={song?.images.background} alt="name" className="w-full rounded-full object-cover" />
+               </Link>
               </SwiperSlide>
               ) )}
           </Swiper>
