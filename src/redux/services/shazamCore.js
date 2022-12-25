@@ -9,10 +9,6 @@ const options = {
     }
   };
   
-//   fetch('https://shazam-core.p.rapidapi.com/v1/charts/world', options)
-//     .then(response => response.json())
-//     .then(response => console.log(response))
-//     .catch(err => console.error(err));
 
     export const shazamCoreApi = createApi({
         reducerPath: "shazamCoreApi",
@@ -43,6 +39,9 @@ const options = {
             }), 
             getSongsByGenre: builder.query({
                 query: (genreCode) => `/v1/charts/genre-world?genre_code=${genreCode}`
+            }),
+            getSongsBySearch: builder.query({
+                query: (searchTerm) => `/v1/search/multi?search_type=SONGS_ARTISTS&query=${searchTerm}`
             })
         }),
     });
@@ -53,4 +52,5 @@ const options = {
         useGetSongRelatedQuery, 
         useGetArtistDetailQuery,
         useGetSongsByCountryQuery,
-        useGetSongsByGenreQuery } = shazamCoreApi; 
+        useGetSongsByGenreQuery,
+        useGetSongsBySearchQuery } = shazamCoreApi; 

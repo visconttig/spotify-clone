@@ -14,10 +14,6 @@ const Discover = () => {
     const dispatch = useDispatch();
     const { activeSong, isPlaying, genreListId } = useSelector((state) => (state.player));
     const { data, isFetching, error } = useGetSongsByGenreQuery(genreListId);
-
-
-    console.log("GENRE ID:" );
-    console.log(genreListId);
     
     
     
