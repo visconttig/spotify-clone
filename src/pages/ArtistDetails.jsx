@@ -30,10 +30,7 @@ const ArtistDetails = () => {
 
             
             <RelatedSongs
-                // data={Object.values(artistData?.songs)}
                 data={artistData?.data[0]?.views?.['top-songs']?.data}
-                // data={artistData}
-                // newApi={true}
                 artistId={artistId}
                 isPlaying={isPlaying}
                 activeSong={activeSong} />
