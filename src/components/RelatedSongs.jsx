@@ -5,17 +5,20 @@ const RelatedSongs = ({ data, isPlaying, activeSong,
   handlePauseClick, handlePlayClick, artistId, newApi }) => {
 
 
-    let songsData;
-    switch(newApi){
-      case true:
-        songsData = data?.data[0]?.views?.['top-songs']?.data;
-        break;
-      case false:
-        songsData = data;
-        break;
-      default:
-        songsData = null;
-    }
+    let songsData = data;
+
+
+    // let songsData;
+    // switch(newApi){
+    //   case true:
+    //     songsData = data?.data[0]?.views?.['top-songs']?.data;
+    //     break;
+    //   case false:
+    //     songsData = data;
+    //     break;
+    //   default:
+    //     songsData = null;
+    // }
 
 
 

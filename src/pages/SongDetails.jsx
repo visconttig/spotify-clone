@@ -13,11 +13,8 @@ const SongDetails = () => {
     const { data: songData, isFetching: isFetchingSongDetails } = useGetSongDetailsQuery(songid); 
     const { data, isFetching: isFetchingRelatedSongs, error } = useGetSongRelatedQuery(songid);
 
-    // test
-    console.log("SONG ID: ");
-    console.log(songid);
 
-    const handlePlayClick = ({song, i}) => {
+    const handlePlayClick = (song, i) => {
         dispatch(setActiveSong({ song, data, i }));
         dispatch(playPause(true));
       };
@@ -55,13 +52,13 @@ const SongDetails = () => {
                 </div>
             </div>
 
-            <RelatedSongs
-                data={data}
-                newApi={false}
-                isPlaying={isPlaying}
-                activeSong={activeSong}
-                handlePauseClick={handlePauseClick}
-                handlePlayClick={handlePlayClick} />
+
+                <RelatedSongs
+                    data={data}
+                    isPlaying={isPlaying}
+                    activeSong={activeSong}
+                    handlePauseClick={handlePauseClick}
+                    handlePlayClick={handlePlayClick} />
                 
         </div>
     );

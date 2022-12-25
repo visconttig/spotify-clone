@@ -12,6 +12,7 @@ const ArtistDetails = () => {
     const { data: artistData, isFetching: isFetchingArtistDetails, error } = useGetArtistDetailQuery(artistId);
 
 
+
     if(isFetchingArtistDetails) {
         return (
             <Loader title="Loading artist details." />
@@ -30,8 +31,9 @@ const ArtistDetails = () => {
             
             <RelatedSongs
                 // data={Object.values(artistData?.songs)}
-                data={artistData}
-                newApi={true}
+                data={artistData?.data[0]?.views?.['top-songs']?.data}
+                // data={artistData}
+                // newApi={true}
                 artistId={artistId}
                 isPlaying={isPlaying}
                 activeSong={activeSong} />
