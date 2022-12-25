@@ -40,6 +40,9 @@ const options = {
             }),
             getSongsByCountry: builder.query({
                 query: (countryCode) => `/v1/charts/country?country_code=${countryCode}`
+            }), 
+            getSongsByGenre: builder.query({
+                query: (genreCode) => `/v1/charts/genre-world?genre_code=${genreCode}`
             })
         }),
     });
@@ -49,4 +52,5 @@ const options = {
         useGetSongDetailsQuery,
         useGetSongRelatedQuery, 
         useGetArtistDetailQuery,
-        useGetSongsByCountryQuery } = shazamCoreApi; 
+        useGetSongsByCountryQuery,
+        useGetSongsByGenreQuery } = shazamCoreApi; 

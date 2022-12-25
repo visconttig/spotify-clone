@@ -1,0 +1,16 @@
+export const genresKeys = {
+    Pop : 'POP',
+    "Hip-Hop" : 'HIP_HOP_RAP',
+    Dance : 'DANCE',
+    Electronic : 'ELECTRONIC',
+    Soul : 'SOUL_RNB',
+    Alternative : 'ALTERNATIVE',
+    Rock : 'ROCK',
+    Latin : 'LATIN',
+    Film : 'FILM_TV',
+    Country : 'COUNTRY',
+    Worldwide : 'WORLDWIDE',
+    Reggae : 'REGGAE_DANCE_HALL',
+    House : 'HOUSE',
+    "K-Pop" : 'K_POP',
+  };
