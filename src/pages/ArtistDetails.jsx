@@ -5,6 +5,7 @@ import { DetailsHeader, Error, Loader, RelatedSongs } from "../components";
 import { useGetArtistDetailQuery } from "../redux/services/shazamCore";
 
 
+
 const ArtistDetails = () => {
     const { id: artistId } = useParams();
     const { activeSong, isPlaying } = useSelector((state) => state.player);
@@ -30,6 +31,7 @@ const ArtistDetails = () => {
             <RelatedSongs
                 // data={Object.values(artistData?.songs)}
                 data={artistData}
+                newApi={true}
                 artistId={artistId}
                 isPlaying={isPlaying}
                 activeSong={activeSong} />

@@ -33,7 +33,7 @@ const options = {
                 query: (songid) => `/v1/tracks/details?track_id=${songid}`
             }),
             getSongRelated: builder.query({
-                query: ({songid}) => `/v1/tracks/related?track_id=${songid}`
+                query: (songid) => `/v1/tracks/related?track_id=${songid}`
             }),
             getArtistDetail: builder.query({
                 query: (artistId) => `/v2/artists/details?artist_id=${artistId}`

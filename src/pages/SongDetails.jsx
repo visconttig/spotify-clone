@@ -7,11 +7,15 @@ import { useGetSongDetailsQuery, useGetSongRelatedQuery } from "../redux/service
 
 
 const SongDetails = () => {
-    const dispatch = useDispatch();
     const { songid } = useParams();
+    const dispatch = useDispatch();
     const { activeSong, isPlaying } = useSelector((state) => state.player);
-    const { data: songData, isFetching: isFetchingSongDetails } = useGetSongDetailsQuery(songid);
-    const { data, isFetching: isFetchingRelatedSongs, error } = useGetSongRelatedQuery({songid});
+    const { data: songData, isFetching: isFetchingSongDetails } = useGetSongDetailsQuery(songid); 
+    const { data, isFetching: isFetchingRelatedSongs, error } = useGetSongRelatedQuery(songid);
+
+    // test
+    console.log("SONG ID: ");
+    console.log(songid);
 
     const handlePlayClick = ({song, i}) => {
         dispatch(setActiveSong({ song, data, i }));
@@ -53,6 +57,7 @@ const SongDetails = () => {
 
             <RelatedSongs
                 data={data}
+                newApi={false}
                 isPlaying={isPlaying}
                 activeSong={activeSong}
                 handlePauseClick={handlePauseClick}
