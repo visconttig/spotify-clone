@@ -13,7 +13,11 @@ import { useGetSongsByGenreQuery } from "../redux/services/shazamCore.js";
 const Discover = () => {
     const dispatch = useDispatch();
     const { activeSong, isPlaying, genreListId } = useSelector((state) => (state.player));
-    const { data, isFetching, error } = useGetSongsByGenreQuery(genreListId || "POP");
+    const { data, isFetching, error } = useGetSongsByGenreQuery(genreListId);
+
+
+    console.log("GENRE ID:" );
+    console.log(genreListId);
     
     
     
@@ -37,7 +41,7 @@ const Discover = () => {
                 <h2 className="text-white text-3xl font-bold text-left">Discover
                 { genreTitle ? ( <span className="text-gray-400 opacity-80"> {genreTitle} </span> ) : null } </h2>
                 <select onChange={(e) => dispatch(selectGenreListId(genresKeys[e.target.value])) }
-                value={genreListId || "pop"}
+                value={genreTitle}
                 className="bg-black text-gray-300 p-3 text-sm rounded-lg outline-none sm:mt-0 mt-5">
                     {genres.map((genre, i) => (
                         <option key={genre.value} value={genre.title}>{genre.title}</option>
