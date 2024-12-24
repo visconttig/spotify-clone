@@ -4,7 +4,7 @@
 
 Spotify Clone is a web application that replicates the core functionalities of Spotify, allowing users to stream music, and discover new tracks. The project is built using modern web technologies, focusing on responsive design and user experience.
 
-![Picture depicting image of music player project](https://preeminent-sherbet-2ec81c.netlify.app/images/spotify-clone.jpg)
+![Picture depicting image of music player project](https://visconttig.com/images/spotify-clone.jpg)
 
 ## Features
 
